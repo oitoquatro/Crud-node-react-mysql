@@ -58,6 +58,16 @@ const Grid = ({ users }) => {
         {users.map((item, i) => (
           <tr key={i}>
             <td width="30%">{item.nome}</td>
+            <td width="30%">{item.email}</td>
+            <td width="20%" onlyWeb>
+              {item.fone}              
+            </td>
+            <td alignCenter width="5%">
+              <FaEdit />
+            </td>
+            <td alignCenter width="5%">
+              <FaTrash  />
+            </td>
           </tr>
         ))}
       </Tbody>
