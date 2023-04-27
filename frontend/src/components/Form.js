@@ -18,23 +18,23 @@ const InputArea = styled.div`
 `;
 
 const Input = styled.input`
-width: 120px;
-padding: 0 10px;
-border: 1px solid #bbb;
-border-radius: 5px;
-height: 40px;
+  width: 120px;
+  padding: 0 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  height: 40px;
 `;
 
 const Label = styled.label``;
 
 const Button = styled.button`
-padding: 10px;
-cursor: pointer;
-border-radius: 5px;
-border: none;
-background-color: #2c73d2;
-color: white;
-height: 42px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #2c73d2;
+  color: white;
+  height: 42px;
 `;
 
 const Form = ({ onEdit }) => {
