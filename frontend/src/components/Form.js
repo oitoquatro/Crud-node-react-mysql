@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { Toast, toast } from "react-toastify";
 
 const FormContainer = styled.form`
   display: flex;
@@ -40,8 +42,34 @@ const Button = styled.button`
 const Form = ({ onEdit }) => {
   const ref = useRef();
 
+  useEffect(() => {
+    if (onEdit) {
+      const user = ref.current;
+
+      user.nome.value = onEdit.nome;
+      user.email.value = onEdit.email;
+      user.fone.value = onEdit.fone;
+      user.data_nascimento.value = onEdit.data_nascimento;
+    }
+  }, [onEdit]);
+
+  const handleSubmit = async (e) => { 
+    e.preventDefault();
+    
+    const user = ref.current;
+    if (
+      !user.nome.value ||
+      !user.email.value ||
+      user.fone.value ||
+      user.data_nascimento.value
+    ) {
+      return toast.warn("Preencha todos os campos!");
+    }
+    
+  };
+
   return (
-    <FormContainer ref={ref}>
+    <FormContainer ref={ref} onSubmit={handleSubmit}>
       <InputArea>
         <Label>Nome</Label>
         <Input name="nome" />
